@@ -91,7 +91,7 @@ export async function POST(request: Request) {
         console.error({ errorCreatingCredits });
         return NextResponse.json(
           {
-            message: "Something went wrong!",
+            message: "Something went wrong creating credits!",
           },
           { status: 500, statusText: "Something went wrong!" }
         );
@@ -198,7 +198,7 @@ export async function POST(request: Request) {
         console.error({ updateCreditError });
         return NextResponse.json(
           {
-            message: "Something went wrong!",
+            message: "Something went wrong updating credits!",
           },
           { status: 500, statusText: "Something went wrong!" }
         );
