@@ -67,7 +67,7 @@ export async function POST(request: Request) {
       console.error({ creditError });
       return NextResponse.json(
         {
-          message: "Something went wrong!",
+          message: "Something went wrong! Please purchase credits before training.",
         },
         { status: 500, statusText: "Something went wrong!" }
       );
