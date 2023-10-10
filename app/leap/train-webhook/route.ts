@@ -166,7 +166,7 @@ export async function POST(request: Request) {
             "{model_type}",
             (model_type as string) ?? ""
           ),
-          numberOfImages: 4,
+          numberOfImages: 2,
           height: 512,
           width: 512,
           steps: 50,
