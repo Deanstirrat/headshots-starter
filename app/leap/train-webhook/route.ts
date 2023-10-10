@@ -15,10 +15,20 @@ const leapWebhookSecret = process.env.LEAP_WEBHOOK_SECRET;
 const stripeIsConfigured = process.env.NEXT_PUBLIC_STRIPE_IS_ENABLED === "true";
 
 const prompts = [
-  "8k close up linkedin profile picture of @subject {model_type}, professional jack suite, professional headshots, photo-realistic, 4k, high-resolution image, workplace settings, upper body, modern outfit, professional suit, business, blurred background, glass building, office window",
-  "8k close up linkedin profile picture of @subject {model_type}, linkedin, professional jack suit, professional headshots, photo-realistic, 4k, high-resolution image, workplace settings, upper body, modern outfit, professional suit, business, blurred background, glass building, garden, bokeh",
-  "8k linkedin professional profile photo of @subject {model_type} in a suit with studio lighting, bokeh, corporate portrait headshot photograph best corporate photography photo winner, meticulous detail, hyperrealistic, centered uncropped symmetrical beautiful",
-  "8k professional headshot of @subject {model_type}, crisp details, studio backdrop, executive attire, confident posture, neutral expression, high-definition, corporate setting, sharp focus, ambient lighting, business professional, cityscape view",
+  "8k close up 1990's high school yearbook photo of @subject {model_type}, preppy stylish uniform, professional headshots, photo-realistic, 4k, high-resolution image, studio settings, upper body, preppy outfit, cute uniform, school, yearbook cloth background, studio lighting",
+  "8k 1990's high school yearbook photo of @subject {model_type}, sports uniform, professional headshots, photo-realistic, 4k, high-resolution image, studio settings, upper body, prep school, cute uniform, skirt, yearbook cloth background, studio lighting",
+  "8k 1990's hip-hop streetwear fashion photo of @subject {model_type}, award winning photography, retro revival, 4k, 90's streetwear, high resolution, photo-realistic, urban setting, Sportswear Chic",
+  "8k 1994 West Coast Hip-Hop Fashion photo of man, award winning photography, 90s Nostalgia, detailed face, 4k, 90's streetwear, high resolution, photo-realistic, Sportswear Chic",
+  "@subject {model_type} at Hogwarts party, July 1998, detailed face, detailed arms, full body portrait, Polaroid photo",
+  "@subject {model_type} at Hogwarts party, January 1998, detailed face, detailed arms, full body portrait, Polaroid photo",
+  "8k polaroid photo of @subject {model_type}, a 1970s Bohemian Hippie, long, flowing, hair, feathers in hair, beads, sun-kissed complexion, flowy tie-dye maxi dress, 4k, high-resolution image, layered necklaces, peace symbols, feathers, vintage-photo, colorful pendants, Beaded bracelets and anklets, barefoot, makeshift campsite in background, grassy meadow, hippy commune",
+  "8k polaroid photo of @subject {model_type}, a 1970s Bohemian Hippie, long, flowing, hair, flowers, in hear, beads, sun-kissed complexion, fringed suede vest, bell-bottom jeans, 4k, acoustic guitar, high-resolution image, layered necklaces, peace symbols, feathers, vintage-photo, colorful pendants, Beaded bracelets and anklets, barefoot, Haight Street background, vintage school bus, San francisco",
+  "8k 1980s horror film style photo of @subject {model_type}, teen sleepaway camp summer camp, person holding homemade weapon, victim in horror film, 1980s fashion, photo-realistic, high-resolution image, studio settings, full body, 1980s fashion, bloody clothes, 1980s retro slasher film person survivor",
+  "8k 1980 horror film style photo of @subject {model_type}, teen sleepaway camp summer camp, teenage victim in 1980 slasher film, 1980s fashion, photo-realistic, high-resolution image, studio settings, full body, bloody clothes",
+  "8k vintage portrait of @subject {model_type}, teenage victorian vampire, 1800s beautiful vampire with fangs, fangs, victorian era clothing, blood on face and clothes, photo-realistic, vintage portrait, bloody, grainy picture, victorian style curly hair, horror vampire icon, scary vintage victorian vampire",
+  "8k vintage portrait of @subject {model_type}, teenage victorian vampire with fangs, 1800s beautiful young vampire with fangs, victorian era clothing, blood on face and clothes, photo-realistic, vintage portrait, bloody, grainy portrait picture, victorian style curly hair, horror vampire icon, scary vintage victorian vampire, bloody fangs, man-eating vampire",
+  "8k photo of @subject {model_type}, siren mermaid, beautiful siren, creepy mermaid, long flowing hair, underwater, photo-realistic, high-resolution image, fantasy siren, studio settings, siren tail, creepy dark siren mermaid, evil, moonlight, ethereal, white, black, ghostly",
+  "8k photo of @subject {model_type}, scary siren mermaid, siren mythology, horror, flowing hair, underwater, photo-realistic, high-resolution image, fantasy man-eating siren, studio settings, mermaid tail, creepy, dark, evil, ethereal, white, black, ghostly, sharp teeth, creepy moonlight mermaid"
 ];
 
 if (!resendApiKey) {
@@ -114,7 +124,7 @@ export async function POST(request: Request) {
       if (resendApiKey) {
         const resend = new Resend(resendApiKey);
         await resend.emails.send({
-          from: "noreply@headshots.tryleap.ai",
+          from: "noreply@klone.images.ai",
           to: user?.email ?? "",
           subject: "Your model was successfully trained!",
           html: `<h2>We're writing to notify you that your model training was successful! 1 credit has been used from your account.</h2>`,
@@ -159,7 +169,7 @@ export async function POST(request: Request) {
           width: 512,
           steps: 50,
           negativePrompt:
-            "(deformed iris, deformed pupils, semi-realistic, cgi, 3d, render, sketch, cartoon, drawing, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck",
+            "(deformed iris, deformed pupils, semi-realistic, cgi, 3d, render, sketch, cartoon, drawing, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, ugly, duplicate, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck",
           modelId: result.id,
           promptStrength: 7.5,
           webhookUrl: `${leapImageWebhookUrl}?user_id=${user.id}&model_id=${result.id}&webhook_secret=${leapWebhookSecret}&model_db_id=${modelUpdated[0]?.id}`,
@@ -172,7 +182,7 @@ export async function POST(request: Request) {
       if (resendApiKey) {
         const resend = new Resend(resendApiKey);
         await resend.emails.send({
-          from: "noreply@headshots.tryleap.ai",
+          from: "noreply@klone.images.ai",
           to: user?.email ?? "",
           subject: "Your model failed to train!",
           html: `<h2>We're writing to notify you that your model training failed!. Since this failed, you will not be billed for it</h2>`,
