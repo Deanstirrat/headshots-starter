@@ -19,11 +19,14 @@ if (!leapWebhookSecret) {
 }
 
 export async function POST(request: Request) {
+  console.log("train data 1");
   const incomingFormData = await request.formData();
   const images = incomingFormData.getAll("image") as File[];
   const type = incomingFormData.get("type") as string;
   const name = incomingFormData.get("name") as string;
   const supabase = createRouteHandlerClient<Database>({ cookies });
+
+  console.log("train data 2");
 
   const {
     data: { user },
