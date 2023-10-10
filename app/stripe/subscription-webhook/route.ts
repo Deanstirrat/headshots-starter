@@ -159,6 +159,7 @@ export async function POST(request: Request) {
           { status: 200, statusText: "Success" }
         );
       } else {
+        console.log("no credits, inserting row");
         // Else create new credits row.
         const {
           data, error,

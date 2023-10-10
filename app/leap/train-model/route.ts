@@ -74,6 +74,7 @@ export async function POST(request: Request) {
     }
 
     if (credits.length === 0) {
+      console.log('no credits, needs row, creating');
       // create credits for user.
       const { error: errorCreatingCredits } = await supabase.from("credits").insert({
         user_id: user.id,
@@ -153,7 +154,7 @@ export async function POST(request: Request) {
       console.error(modelError);
       return NextResponse.json(
         {
-          message: "Something went wrong!",
+          message: "Something went wrong with model creation!",
         },
         { status: 500, statusText: "Something went wrong!" }
       );
@@ -170,7 +171,7 @@ export async function POST(request: Request) {
       console.error(samplesError);
       return NextResponse.json(
         {
-          message: "Something went wrong!",
+          message: "Something went wrong with sample images!",
         },
         { status: 500, statusText: "Something went wrong!" }
       );
@@ -201,7 +202,7 @@ export async function POST(request: Request) {
     console.error(e);
     return NextResponse.json(
       {
-        message: "Something went wrong!",
+        message: "Something went wrong! unknown",
       },
       { status: 500, statusText: "Something went wrong!" }
     );
