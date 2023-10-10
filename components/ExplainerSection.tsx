@@ -50,10 +50,10 @@ export default function ExplainerSection() {
           <div className="text-3xl font-bold text-blue-600 bg-white border-2 border-blue-600 rounded-full w-10 h-10 flex items-center justify-center">
             3
           </div>
-          <h3 className="text-2xl font-semibold">Get amazing headshots</h3>
+          <h3 className="text-2xl font-semibold">Get amazing photos</h3>
         </div>
         <p className="text-sm text-gray-600 text-center">
-          Once your model is trained, we'll give you amazing headshots!
+          Once your model is trained, we'll give you amazing photos!
         </p>
         <img
           src={result.src}

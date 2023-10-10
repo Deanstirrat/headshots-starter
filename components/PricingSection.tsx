@@ -50,7 +50,7 @@ const pricingOptions = [
     description:
       "Perfect for individuals looking to enhance their online presence.",
     features: [
-      "4 AI Headshots",
+      "32 AI Images",
     ],
     buttonText: "Choose Starter",
     bgColor: "bg-white",
@@ -59,9 +59,9 @@ const pricingOptions = [
     title: "Basic",
     price: "3 Credits",
     description:
-      "Ideal for professionals requiring frequent updates to their profiles.",
+      "Our most loved plan gives you nearly 100 custom photos to choose from.",
     features: [
-      "12 AI Headshots",
+      "96 AI Images",
     ],
     buttonText: "Choose Basic",
     bgColor: "bg-blue-50",
@@ -69,9 +69,9 @@ const pricingOptions = [
   {
     title: "Premium",
     price: "5 Credits",
-    description: "The best value with unlimited possibilities.",
+    description: "The best value with unlimited content.",
     features: [
-      "20 AI Headshots",
+      "160 AI Images",
     ],
     buttonText: "Choose Premium",
     bgColor: "bg-white",
