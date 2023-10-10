@@ -93,7 +93,7 @@ export async function POST(request: Request) {
           {
             message: "Something went wrong creating credits!",
           },
-          { status: 500, statusText: "Something went wrong!" }
+          { status: 500, statusText: "Something went wrong!" + user }
         );
       }
 
