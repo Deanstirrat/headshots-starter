@@ -91,9 +91,9 @@ export async function POST(request: Request) {
         console.error({ errorCreatingCredits });
         return NextResponse.json(
           {
-            message: "Something went wrong creating credits!",
+            message: "Something went wrong creating credits! usrId-> "+user.id+"<-userID",
           },
-          { status: 500, statusText: "Something went wrong!" + user }
+          { status: 500, statusText: "Something went wrong!" }
         );
       }
 
