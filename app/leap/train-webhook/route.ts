@@ -15,22 +15,21 @@ const leapWebhookSecret = process.env.LEAP_WEBHOOK_SECRET;
 const stripeIsConfigured = process.env.NEXT_PUBLIC_STRIPE_IS_ENABLED === "true";
 
 const prompts = [
-  "8k close up 1990's high school yearbook photo of @subject {model_type}, preppy stylish uniform, professional headshots, photo-realistic, 4k, high-resolution image, studio settings, upper body, preppy outfit, cute uniform, school, yearbook cloth background, studio lighting",
-  "8k 1990's high school yearbook photo of @subject {model_type}, sports uniform, professional headshots, photo-realistic, 4k, high-resolution image, studio settings, upper body, prep school, cute uniform, skirt, yearbook cloth background, studio lighting",
-  "8k 1990's hip-hop streetwear fashion photo of @subject {model_type}, award winning photography, retro revival, 4k, 90's streetwear, high resolution, photo-realistic, urban setting, Sportswear Chic",
-  "8k 1994 West Coast Hip-Hop Fashion photo of man, award winning photography, 90s Nostalgia, detailed face, 4k, 90's streetwear, high resolution, photo-realistic, Sportswear Chic",
-  "@subject {model_type} at Hogwarts party, July 1998, detailed face, detailed arms, full body portrait, Polaroid photo",
-  "@subject {model_type} at Hogwarts party, January 1998, detailed face, detailed arms, full body portrait, Polaroid photo",
-  "8k polaroid photo of @subject {model_type}, a 1970s Bohemian Hippie, long, flowing, hair, feathers in hair, beads, sun-kissed complexion, flowy tie-dye maxi dress, 4k, high-resolution image, layered necklaces, peace symbols, feathers, vintage-photo, colorful pendants, Beaded bracelets and anklets, barefoot, makeshift campsite in background, grassy meadow, hippy commune",
-  "8k polaroid photo of @subject {model_type}, a 1970s Bohemian Hippie, long, flowing, hair, flowers, in hear, beads, sun-kissed complexion, fringed suede vest, bell-bottom jeans, 4k, acoustic guitar, high-resolution image, layered necklaces, peace symbols, feathers, vintage-photo, colorful pendants, Beaded bracelets and anklets, barefoot, Haight Street background, vintage school bus, San francisco",
-  "8k 1980s horror film style photo of @subject {model_type}, teen sleepaway camp summer camp, person holding homemade weapon, victim in horror film, 1980s fashion, photo-realistic, high-resolution image, studio settings, full body, 1980s fashion, bloody clothes, 1980s retro slasher film person survivor",
-  "8k 1980 horror film style photo of @subject {model_type}, teen sleepaway camp summer camp, teenage victim in 1980 slasher film, 1980s fashion, photo-realistic, high-resolution image, studio settings, full body, bloody clothes",
-  "8k vintage portrait of @subject {model_type}, teenage victorian vampire, 1800s beautiful vampire with fangs, fangs, victorian era clothing, blood on face and clothes, photo-realistic, vintage portrait, bloody, grainy picture, victorian style curly hair, horror vampire icon, scary vintage victorian vampire",
-  "8k vintage portrait of @subject {model_type}, teenage victorian vampire with fangs, 1800s beautiful young vampire with fangs, victorian era clothing, blood on face and clothes, photo-realistic, vintage portrait, bloody, grainy portrait picture, victorian style curly hair, horror vampire icon, scary vintage victorian vampire, bloody fangs, man-eating vampire",
-  "8k photo of @subject {model_type}, siren mermaid, beautiful siren, creepy mermaid, long flowing hair, underwater, photo-realistic, high-resolution image, fantasy siren, studio settings, siren tail, creepy dark siren mermaid, evil, moonlight, ethereal, white, black, ghostly",
-  "8k photo of @subject {model_type}, scary siren mermaid, siren mythology, horror, flowing hair, underwater, photo-realistic, high-resolution image, fantasy man-eating siren, studio settings, mermaid tail, creepy, dark, evil, ethereal, white, black, ghostly, sharp teeth, creepy moonlight mermaid",
-  "8k polaroid of @subject {model_type}, 1990s young grunge rocker, 1990s vintage grunge clothes, rock band, rocker holding rock music instruments, photo-realistic, 4k, high-resolution image, studio settings, polaroid photo, studio lighting, grainy polaroid of 1990s rocker",
-  "8k 1990's polaroid of @subject {model_type}, teenage rocker, 1990s grunge clothes, punk rock band, rocker musician holding rock instruments, photo-realistic, 4k, high-resolution image, studio settings, grainy polaroid photo, studio lighting, 1990's polaroid of punk rocker grunge person, rock band"
+  "Polaroid of @subject {model_type} at a 1996 high school prom, waist up, emphasize on 90s fashion and skin texture",
+  "yearbook photo of @subject {model_type} in a 1990's high school uniform, focus on facial features and clothing details",
+  "polaroid of @subject {model_type} as a 1990s young grunge rocker, emphasize on facial, clothing and instrument details, perfect skin texture",
+  "photo of @subject {model_type} as a siren mermaid, focus on hair and underwater elements",
+  "analog style, closeup head and shoulders portrait of @subject {model_type}, long curly hair, beautiful face, gray eyes, symmetrical features, perfect skin, juicy lips, looking at camera, realistic photo, award winning photography, intricate details, masterpiece, leather couch, orange and teal, dynamic lighting, cinematic filters, effects, retouched, tattoos, tanned skin",
+  "80's portrait of @subject {model_type}, 4k, detailed face, blue background, white pearl necklace, fashion model in oversized white clothes, official balmain editorial, dramatic lighting highly detailed, analog photo, overglaze, 80mm Sigma f/1.4 or any ZEISS lens",
+  "a vintage-style close-up portrait of @subject {model_type} resembling a classic film star. use soft lighting, black and white, and retro fashion from the 1940s. achieve a timeless and glamorous hollywood look",
+  "a full-length portrait of @subject {model_type} dressed in a timeless and elegant evening gown, reminiscent of a 1950s hollywood icon. capture the grace and sophistication of their posture, emphasizing the gown's intricate details and the ambiance of an old-fashioned ballroom. emphasis on face details and skin texture",
+  "a waist-up portrait of @subject {model_type} channeling the spirit of the '50s rockabilly culture. capture their vibrant style, featuring a pompadour hairstyle, rolled-up jeans, and a leather jacket adorned with patches. create a dynamic, rebellious attitude.",
+  "Recreate in 8k the authoritative time magazine cover style with @subject {model_type} in 8k. use a large-format 4x5 view camera to capture every detail. dress them in attire that reflects a significant event or topic, and create a powerful, thought-provoking editorial image in the iconic style of time magazine's cover stories.",
+  "recreate in 8k the iconic vogue cover style with @subject {model_type}. use a medium-format hasselblad camera to capture their stunning beauty. dress them in haute couture fashion, and create a high-fashion, dramatic portrait reminiscent of vogue's timeless editorial photography.",
+  "8k capture @subject {model_type} in the spirit of a rolling stone rock star editorial. utilize a vintage canon ae-1 camera for that timeless look. dress them in edgy rock attire, place them in a gritty, urban backdrop, and create a raw and captivating portrait in the style of rolling stone's legendary music photography.",
+  "generate a hauntingly beautiful vintage 8k portrait of @subject {model_type} as a vampire in the victorian era. dress them in elaborate victorian attire, with dark, rich fabrics and intricate details. emphasize a mysterious and alluring expression, capturing the timeless elegance of a vampire. use soft, candlelit lighting to enhance the atmospheric and gothic feel of the era. optionally, add subtle supernatural elements like fangs or a hint of otherworldly glow.",
+  "generate a mesmerizing 8k image of @subject {model_type} as a mystical enchantress deeply connected to the occult and witchcraft. dress them in elaborate and ethereal witch-inspired attire, adorned with symbols and mystical accessories. emphasize an intense and otherworldly expression, capturing the enigmatic aura of a practitioner of the occult. surround them with an atmosphere of mystery, perhaps using candlelight, mystical symbols, or a hint of magical elements in the background. encourage users to experiment with different expressions that convey a sense of inner power and arcane knowledge.",
+  "generate a powerful and stoic 8k portrait of @subject {model_type} as a formidable viking warrior. dress them in authentic viking attire, featuring chainmail, furs, and rugged accessories. emphasize a determined and fearless expression, capturing the essence of a viking's strength and bravery. place them in a rugged nordic landscape, perhaps with a ship or elements that evoke the viking age. apply a touch of weathered and earthy tones to enhance the historical and rugged aesthetic."
 ];
 
 if (!resendApiKey) {
@@ -126,7 +125,7 @@ export async function POST(request: Request) {
       if (resendApiKey) {
         const resend = new Resend(resendApiKey);
         await resend.emails.send({
-          from: "noreply@klone.images.ai",
+          from: "noreply@deanstirrat.com",
           to: user?.email ?? "",
           subject: "Your model was successfully trained!",
           html: `<h2>We're writing to notify you that your model training was successful! 1 credit has been used from your account.</h2>`,
@@ -166,14 +165,14 @@ export async function POST(request: Request) {
             "{model_type}",
             (model_type as string) ?? ""
           ),
-          numberOfImages: 2,
+          numberOfImages: 3,
           height: 512,
           width: 512,
           steps: 50,
           negativePrompt:
             "(deformed iris, deformed pupils, semi-realistic, cgi, 3d, render, sketch, cartoon, drawing, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, ugly, duplicate, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck",
           modelId: result.id,
-          promptStrength: 7.5,
+          promptStrength: 10,
           webhookUrl: `${leapImageWebhookUrl}?user_id=${user.id}&model_id=${result.id}&webhook_secret=${leapWebhookSecret}&model_db_id=${modelUpdated[0]?.id}`,
         });
 
@@ -184,7 +183,7 @@ export async function POST(request: Request) {
       if (resendApiKey) {
         const resend = new Resend(resendApiKey);
         await resend.emails.send({
-          from: "noreply@klone.images.ai",
+          from: "noreply@kdeanstirrat.com",
           to: user?.email ?? "",
           subject: "Your model failed to train!",
           html: `<h2>We're writing to notify you that your model training failed!. Since this failed, you will not be billed for it</h2>`,

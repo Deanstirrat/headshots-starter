@@ -19,21 +19,17 @@ if (!leapWebhookSecret) {
 }
 
 export async function POST(request: Request) {
-  console.log("train data 1");
   const incomingFormData = await request.formData();
   const images = incomingFormData.getAll("image") as File[];
   const type = incomingFormData.get("type") as string;
   const name = incomingFormData.get("name") as string;
   const supabase = createRouteHandlerClient<Database>({ cookies });
 
-  console.log("train data 2");
 
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
-  console.log("user data");
-  console.log(user);
 
   if (!user) {
     return NextResponse.json({}, { status: 401, statusText: "Unauthorized!" });
@@ -73,14 +69,13 @@ export async function POST(request: Request) {
       console.error({ creditError });
       return NextResponse.json(
         {
-          message: "Something went wrong! Please purchase credits before training.",
+          message: "Something went wrong!",
         },
         { status: 500, statusText: "Something went wrong!" }
       );
     }
 
     if (credits.length === 0) {
-      console.log('no credits, needs row, creating');
       // create credits for user.
       const { error: errorCreatingCredits } = await supabase.from("credits").insert({
         user_id: user.id,
@@ -91,9 +86,9 @@ export async function POST(request: Request) {
         console.error({ errorCreatingCredits });
         return NextResponse.json(
           {
-            message: "Something went wrong creating credits! usrId-> "+user.id+"<-userID",
+            message: "Something went wrong!",
           },
-          { status: 500, statusText: "Something went wrong!" }
+          { status: 500, statusText: "Something went wrong creating credits row!" }
         );
       }
 
@@ -160,7 +155,7 @@ export async function POST(request: Request) {
       console.error(modelError);
       return NextResponse.json(
         {
-          message: "Something went wrong with model creation!",
+          message: "Something went wrong!",
         },
         { status: 500, statusText: "Something went wrong!" }
       );
