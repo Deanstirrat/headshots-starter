@@ -253,12 +253,13 @@ export default function TrainModelZone() {
           </div>
           <FormDescription>
             Use this online tool to easily crop your images:
+            <br/>
             <a
               href="https://batchtools.pro/en/resize/1024x1024"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-4 py-2 text-center text-white bg-accent rounded hover:bg-accent-dark"
-            >
+              className="inline-block px-4 py-2 text-center text-white bg-blue-500 rounded hover:bg-blue-700"
+              >
               CROP TOOL
             </a>
           </FormDescription>
