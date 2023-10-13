@@ -10,6 +10,15 @@ const webhookUrl = process.env.LEAP_WEBHOOK_URL;
 const leapWebhookSecret = process.env.LEAP_WEBHOOK_SECRET;
 const stripeIsConfigured = process.env.NEXT_PUBLIC_STRIPE_IS_ENABLED === "true";
 
+
+import {v2 as cloudinary} from 'cloudinary';
+          
+cloudinary.config({ 
+  cloud_name: 'dlu33yfct', 
+  api_key: process.env.CLOUDNINARY_API_KEY, 
+  api_secret: process.env.CLOUDNINARY_API_SECRET
+});
+
 if (!webhookUrl) {
   throw new Error("MISSING LEAP_WEBHOOK_URL!");
 }
