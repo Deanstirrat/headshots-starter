@@ -262,12 +262,14 @@ export default function TrainModelZone() {
               <br />
               <strong>Note:</strong> Please ensure that your images are 
               cropped to a 1:1(square) aspect ratio with face centered.
+              to easily crop your images.
+            </FormDescription>
+            <div>
               You can use this 
               <a href="https://batchtools.pro/en/resize/1024x1024" target="_blank" rel="noopener noreferrer">
                 online tool
               </a> 
-              to easily crop your images.
-            </FormDescription>
+            </div>
             <div className="outline-dashed outline-2 outline-gray-100 hover:outline-blue-500 w-full h-full rounded-md p-4 flex justify-center align-middle">
               <input {...getInputProps()} />
               {isDragActive ? (
