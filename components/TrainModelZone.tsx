@@ -251,6 +251,13 @@ export default function TrainModelZone() {
               </div>
             </RadioGroup>
           </div>
+          <FormDescription>
+            To crop images use this
+            <a href="https://batchtools.pro/en/resize/1024x1024" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+              online tool
+            </a> 
+            to easily crop your images.
+          </FormDescription>
           <div
             {...getRootProps()}
             className=" rounded-md justify-center align-middle cursor-pointer flex flex-col gap-4"
@@ -264,12 +271,6 @@ export default function TrainModelZone() {
               cropped to a 1:1(square) aspect ratio with face centered.
               to easily crop your images.
             </FormDescription>
-            <div>
-              You can use this 
-              <a href="https://batchtools.pro/en/resize/1024x1024" target="_blank" rel="noopener noreferrer">
-                online tool
-              </a> 
-            </div>
             <div className="outline-dashed outline-2 outline-gray-100 hover:outline-blue-500 w-full h-full rounded-md p-4 flex justify-center align-middle">
               <input {...getInputProps()} />
               {isDragActive ? (
