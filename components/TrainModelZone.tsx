@@ -252,11 +252,15 @@ export default function TrainModelZone() {
             </RadioGroup>
           </div>
           <FormDescription>
-            To crop images use this
-            <a href="https://batchtools.pro/en/resize/1024x1024" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
-              online tool
-            </a> 
-            to easily crop your images.
+            Use this online tool to easily crop your images:
+            <a
+              href="https://batchtools.pro/en/resize/1024x1024"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-4 py-2 text-center text-white bg-accent rounded hover:bg-accent-dark"
+            >
+              CROP TOOL
+            </a>
           </FormDescription>
           <div
             {...getRootProps()}
@@ -268,8 +272,7 @@ export default function TrainModelZone() {
               for. 
               <br />
               <strong>Note:</strong> Please ensure that your images are 
-              cropped to a 1:1(square) aspect ratio with face centered.
-              to easily crop your images.
+              cropped to a 1:1(square) aspect ratio with face centered using above tool.
             </FormDescription>
             <div className="outline-dashed outline-2 outline-gray-100 hover:outline-blue-500 w-full h-full rounded-md p-4 flex justify-center align-middle">
               <input {...getInputProps()} />
